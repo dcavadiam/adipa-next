@@ -1,4 +1,5 @@
-import { Link, XIcon } from "lucide-react";
+import Link from "next/link";
+import { XIcon } from "lucide-react";
 
 import { useBreakpoint } from "@/lib/hooks/useBreakpoints"; 
 
