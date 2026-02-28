@@ -25,6 +25,15 @@
   --shadow-card-hover: 0 10px 20px rgba(3, 27, 78, 0.1);
 }
 
+@layer components {
+  .container-adipa {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding: var(--padding-global);
+  }
+}
+
 :root {
   --container-max-width: 1400px;
   --padding-global: 20px;
