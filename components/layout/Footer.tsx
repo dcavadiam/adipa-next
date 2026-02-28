@@ -1,26 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+
+import { useBreakpoint } from "@/lib/hooks/useBreakpoints";
 
 import { FaFacebookF, FaInstagram, FaYoutube, FaSpotify, FaTiktok, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
+    const { isMobile, isTablet } = useBreakpoint();
     return (
        <>
             <footer className="font-montserrat bg-dark text-white py-4">
-                <section className="container-adipa flex justify-between items-center">
-                    <div className="flex flex-col gap-2">
+                <section className={`container-adipa flex justify-between items-center ${isMobile || isTablet ? "flex-col gap-6" : "flex-row gap-4"}`}>
+                    <div className={`flex flex-col gap-2 ${isMobile || isTablet ? "items-center" : "items-start"}`}>
                         <Link href="/">
                             <Image src="/logo-adipa-white.svg" alt="Adipa Chile" width={200} height={200} />
                         </Link>
                         <p className="text-sm">© Adipa {new Date().getFullYear()} - Todos los derechos reservados.</p>
                     </div>
-                        <ul className="flex gap-4">
+                        <ul className={`flex gap-4 ${isMobile || isTablet ? "flex-col gap-2 items-center" : "flex-row gap-4 items-start"}`}>
                             <li><Link href="/cursos">Cursos</Link></li>
                             <li><Link href="/diplomados">Diplomados</Link></li>
                             <li><Link href="/recursos">Recursos</Link></li>
                             <li><Link href="/contacto">Contacto</Link></li>
                         </ul>
-                    <div className="flex flex-col gap-2">
+                    <div className={`flex flex-col gap-2 ${isMobile || isTablet ? "items-center" : "items-start"}`}>
                         Síguenos en nuestras redes sociales
                         <div className="flex gap-3">
                             <a href="https://www.facebook.com/Adipa-102577181991776" target="_blank" rel="noopener noreferrer" className="text-white rounded-full p-2 bg-white">
