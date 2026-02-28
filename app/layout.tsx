@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Cursos de Psicología con Certificado en 2026 | Adipa Chile",
@@ -16,7 +17,11 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
-        {children}
+        <Header />
+        <main className="container mx-auto p-4">
+          {children}
+        </main>
+        {/* <Footer /> */}
       </body>
     </html>
   );
