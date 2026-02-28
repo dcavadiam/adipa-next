@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { XIcon } from "lucide-react";
 
-import { useBreakpoint } from "@/lib/hooks/useBreakpoints"; 
-
 interface NavMobileProps {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
@@ -11,11 +9,10 @@ interface NavMobileProps {
 }
 
 export default function NavMobile( { isOpen, setIsOpen, navLinks, pathname }: NavMobileProps ) {
-    const { isMobile, isTablet } = useBreakpoint();
 
     return (
         <div
-            className={`${isMobile || isTablet ? "fixed" : "hidden"} top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+            className={`fixed md:hidden top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
                 }`}
         >
             <div className="flex justify-end items-center px-6 py-5">

@@ -5,15 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { useBreakpoint } from "@/lib/hooks/useBreakpoints";
-
 import { MenuIcon } from "lucide-react";
 import NavMobile from "./NavMobile";
 
 export default function Header() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
-    const { isMobile, isTablet } = useBreakpoint();
 
     const navLinks = [
         { href: "/cursos", label: "Cursos" },
@@ -31,7 +28,7 @@ export default function Header() {
                     </Link>
 
                     {/* Nav desktop */}
-                    <nav className={`${isMobile || isTablet ? "hidden" : "flex"} gap-4 text-lg font-semibold`}>
+                    <nav className="hidden lg:flex gap-4 text-lg font-semibold">
                         {navLinks.map(({ href, label }) => (
                             <Link
                                 key={href}
@@ -44,12 +41,12 @@ export default function Header() {
                     </nav>
 
                     <div className="flex items-center gap-3">
-                        <button className={`${isMobile || isTablet ? "hidden" : "block"} bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/80 transition-colors duration-300 font-semibold cursor-pointer`}>
+                        <button className="hidden lg:block bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/80 transition-colors duration-300 font-semibold cursor-pointer">
                             Iniciar sesión
                         </button>
 
                         <button
-                            className={`${isMobile || isTablet ? "flex" : "hidden"} flex-col justify-center items-center w-9 h-9 gap-1.5 cursor-pointer `}
+                            className="flex lg:hidden flex-col justify-center items-center w-9 h-9 gap-1.5 cursor-pointer "
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label="Abrir menú"
                         >
@@ -61,7 +58,7 @@ export default function Header() {
                 {/* Overlay */}
                 {isOpen && (
                     <div
-                        className={`${isMobile || isTablet ? "fixed" : "hidden"} inset-0 bg-black/40 z-40`}
+                        className="fixed lg:hidden inset-0 bg-black/40 z-40"
                         onClick={() => setIsOpen(false)}
                     />
                 )}

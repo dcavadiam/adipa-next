@@ -24,6 +24,11 @@
   /* Sombras */
   --shadow-card: 0 2px 4px rgba(3, 27, 78, 0.06);
   --shadow-card-hover: 0 10px 20px rgba(3, 27, 78, 0.1);
+
+  /* Breakpoints */
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1280px;
 }
 
 @layer components {

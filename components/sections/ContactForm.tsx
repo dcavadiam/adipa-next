@@ -2,8 +2,6 @@
 
 import { useForm } from "react-hook-form"
 
-import { useBreakpoint } from "@/lib/hooks/useBreakpoints"
-
 type ContactFormData = {
     name: string
     email: string
@@ -11,7 +9,6 @@ type ContactFormData = {
 }
 
 export default function ContactForm() {
-    const { isMobile, isTablet} = useBreakpoint()
     const {
         register,
         handleSubmit,
@@ -36,14 +33,14 @@ export default function ContactForm() {
                 }
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col gap-4">
-                        <div className={`flex gap-4 ${isMobile || isTablet ? "flex-col" : "flex-row"}`}>
-                            <div className={`flex flex-col gap-2 ${isMobile || isTablet ? "w-full" : "w-1/2"}`}>
+                        <div className="flex gap-4 flex-col md:flex-row">
+                            <div className="flex flex-col gap-2 w-full md:w-1/2">
                                 <label htmlFor="name" className="text-base font-semibold">Nombre</label>
                                 <input type="text" id="name" className="w-full p-2 rounded-md border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ingrese su nombre"  {...register("name", { required: "El nombre es requerido", minLength: { value: 2, message: "El nombre debe tener al menos 2 caracteres" } })} />
                                 {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
 
                             </div>
-                            <div className={`flex flex-col gap-2 ${isMobile || isTablet ? "w-full" : "w-1/2"}`}>
+                            <div className="flex flex-col gap-2 w-full md:w-1/2">
                                 <label htmlFor="email" className="text-base font-semibold">Email</label>
                                 <input type="email" id="email" className="w-full p-2 rounded-md border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ingrese su email"  {...register("email", { required: "El email es requerido", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "El email no es válido" } })} />
                                 {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}

@@ -36,7 +36,7 @@ export default function CourseCard({ course }: { course: Course }) {
                 <span>{modalities[course.modality].text}</span>
             </Badge>
             {/* Contenido del curso */}
-            <div className="px-4 py-6 flex flex-col gap-2 justify-between h-[320px]">
+            <div className="px-4 py-6 flex flex-col gap-2 justify-between sm:h-[320px] h-auto">
                 <div className="flex flex-col gap-2">
                     
 
