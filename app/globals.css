@@ -18,6 +18,7 @@
 
   /* Border radius */
   --radius-card: 12px;
+  --radius-card-top: 12px 12px 0 0;
   --radius-button: 8px;
 
   /* Sombras */
