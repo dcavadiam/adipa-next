@@ -41,7 +41,6 @@ export default function NavMobile( { isOpen, setIsOpen, navLinks, pathname }: Na
                 ))}
             </nav>
 
-            {/* Botones al fondo */}
             <div className="px-6 py-6 flex flex-col gap-3">
                 <button className="w-full bg-primary text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors duration-300 cursor-pointer">
                     Iniciar sesión
