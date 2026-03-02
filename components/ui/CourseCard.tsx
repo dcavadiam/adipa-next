@@ -28,7 +28,7 @@ const priceWithDiscount = (price: number, discount: number) => {
 
 export default function CourseCard({ course }: { course: Course }) {
     return (
-        <article className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 radius-card relative">
+        <article className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 radius-card relative hover:translate-y-[-4px]">
             <div className="relative w-full h-48 overflow-hidden rounded-t-card">
                 <Image
                     src={course.image}
