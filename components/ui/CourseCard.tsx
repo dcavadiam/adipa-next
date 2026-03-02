@@ -29,7 +29,14 @@ const priceWithDiscount = (price: number, discount: number) => {
 export default function CourseCard({ course }: { course: Course }) {
     return (
         <article className="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 radius-card relative">
-            <Image src={course.image} alt={course.title} width={100} height={100} className="w-full h-48 object-cover rounded-t-card" />
+            <div className="relative w-full h-48 overflow-hidden rounded-t-card">
+                <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                />
+            </div>
             {/* Badge de la modalidad */}
             <Badge bgColor={modalities[course.modality].bg}>
                 {modalities[course.modality].icon}
@@ -61,7 +68,7 @@ export default function CourseCard({ course }: { course: Course }) {
                                 {/* Precio original */}
                                 <div className="flex items-center gap-2">
                                     <span className="text-gray-600 text-lg line-through">${course.originalPrice}</span>
-                                    <span className="text-sm bg-primary/10 text-primary px-2 py-1 rounded-md">Ahorro: ${course.originalPrice - priceWithDiscount(course.originalPrice, course.discount)}</span>
+                                    <span className="text-xs bg-secondary/50  px-2 py-1 rounded-md">Ahorro: ${course.originalPrice - priceWithDiscount(course.originalPrice, course.discount)}</span>
                                 </div>
                             </>
                         )

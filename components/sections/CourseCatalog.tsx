@@ -24,7 +24,7 @@ export default function CourseCatalog() {
             : courses.filter((course) => course.category === selectedCategory);
 
     return (
-        <section className="font-montserrat">
+        <section id="cursos">
             <div className="container-adipa px-4 py-16">
                 <h2 className="text-2xl font-bold mb-6 text-primary">Catálogo de Cursos</h2>
 

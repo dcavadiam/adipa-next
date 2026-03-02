@@ -1,14 +1,12 @@
-import Link from "next/link";
 import { XIcon } from "lucide-react";
 
 interface NavMobileProps {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
     navLinks: { href: string, label: string }[];
-    pathname: string;
 }
 
-export default function NavMobile( { isOpen, setIsOpen, navLinks, pathname }: NavMobileProps ) {
+export default function NavMobile( { isOpen, setIsOpen, navLinks }: NavMobileProps ) {
 
     return (
         <div
@@ -26,16 +24,14 @@ export default function NavMobile( { isOpen, setIsOpen, navLinks, pathname }: Na
             </div>
 
             <nav className="flex flex-col ">
-                {navLinks.map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
+                {navLinks.map(({ label }) => (
+                    <span
+                        key={label}
                         onClick={() => setIsOpen(false)}
-                        className={`px-6 py-4 text-base font-semibold border-b border-gray-100 transition-colors duration-200 ${pathname === href ? "text-primary" : "text-dark hover:text-primary"
-                            }`}
+                        className={`px-6 py-4 text-base font-semibold border-b border-gray-100 transition-colors duration-200 cursor-pointer hover:text-primary`}
                     >
                         {label}
-                    </Link>
+                    </span>
                 ))}
             </nav>
 

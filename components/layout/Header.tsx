@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { MenuIcon } from "lucide-react";
 import NavMobile from "./NavMobile";
 
 export default function Header() {
-    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
@@ -24,19 +22,18 @@ export default function Header() {
             <section className="container-adipa">
                 <div className="flex justify-between items-center">
                     <Link href="/">
-                        <Image src="/logo-adipa.svg" alt="Adipa Chile" width={200} height={200} />
+                        <Image src="/logo-adipa.svg" alt="Adipa Chile" width={180} height={180} />
                     </Link>
 
                     {/* Nav desktop */}
-                    <nav className="hidden lg:flex gap-4 text-lg font-semibold">
-                        {navLinks.map(({ href, label }) => (
-                            <Link
-                                key={href}
-                                href={href}
-                                className={`${pathname === href ? "text-primary" : "text-dark"} duration-300 hover:underline`}
+                    <nav className="hidden lg:flex gap-4 text-base font-semibold">
+                        {navLinks.map(({ label }) => (
+                            <span
+                                key={label}
+                                className={`cursor-pointer duration-300 hover:text-primary`}
                             >
                                 {label}
-                            </Link>
+                            </span>
                         ))}
                     </nav>
 
@@ -64,7 +61,7 @@ export default function Header() {
                 )}
 
                 {/* Nav móvil — panel lateral derecho */}
-                <NavMobile isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} pathname={pathname} />
+                <NavMobile isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />
             </section>
 
         </header>
